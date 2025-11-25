@@ -1,18 +1,18 @@
 #include <iostream>
-#include "Fixed.hpp"
 #include "Point.hpp"
-
-
 
 int main( void ) {
 
-    Point a(10, 20);
-    Point b(10, 20);
-    Point c(10, 20);
+    Point a(0, 0);
+    Point b(4, 0);
+    Point c(2, 4);
+    Point point(3, 1);
 
-    Point h = c;
-    c = h;
-    Point x(c);
-    // Point b(original);
-    return 0;
+    if (!bsp(a, b, c, point))
+    {
+        std::cout << "The Point is outside\n";
+        return (1);
+    }
+    std::cout << "The Point is inside\n";
+    return (0);
 }

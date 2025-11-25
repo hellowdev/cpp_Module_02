@@ -59,7 +59,7 @@ bool Fixed::operator<=(const Fixed& obj) const // <= operator
     return (this->fixedPoint <= obj.fixedPoint);
 }
 
-bool Fixed::operator==(const Fixed& obj) const // <= operator
+bool Fixed::operator==(const Fixed& obj) const // == operator
 {
     return (this->fixedPoint == obj.fixedPoint);
 }
@@ -107,6 +107,17 @@ Fixed Fixed::operator++(int) // x++ operator
     fixedPoint++;
     return (tmp);
 }
+Fixed& Fixed::operator--() // ++x operator
+{
+    --fixedPoint;
+    return (*this);
+}
+Fixed Fixed::operator--(int) // x++ operator
+{
+    Fixed tmp = *this;
+    fixedPoint--;
+    return (tmp);
+}
 
 std::ostream& operator<<(std::ostream& COUT, const Fixed& obj) // << operator
 {
@@ -117,7 +128,7 @@ std::ostream& operator<<(std::ostream& COUT, const Fixed& obj) // << operator
 Fixed& Fixed::operator=(const Fixed& original)//  copy assignment
 { 
     fixedPoint = original.fixedPoint;
-    std::cout << "Copy assignment operator called\n";
+    // std::cout << "Copy assignment operator called\n";
     return (*this);
 }
 // ------------------------------------------------------
@@ -155,11 +166,11 @@ void Fixed::setRawBits( int const raw )
 
 int Fixed::getRawBits( void ) const
 {
-    std::cout << "getRawBits member function called\n";
+    // std::cout << "getRawBits member function called\n";
     return fixedPoint;
 }
 
 Fixed::~Fixed()
 {
-    std::cout << "Destructor called\n";
+    // std::cout << "Destructor called\n";
 }
